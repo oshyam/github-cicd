@@ -20,3 +20,8 @@ jobs:
         npm run build
         npm test
       name: Build and Test
+    test-app:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "YOLO"
