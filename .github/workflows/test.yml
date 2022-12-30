@@ -1,11 +1,12 @@
-name:  Github CICD Testing 
+name: Githb-CICD
 on: [push]
 jobs:
-  build-app:
+  check-NodeJS-version:
     runs-on: ubuntu-latest
-    env:
-    steps: 
-  test-app: build-app
-  runs-on : ubuntu-latest
-  steps:
-      - run: echo "Testing Done!"
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: node -v
+      - run: echo "Test Completed!"
